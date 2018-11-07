@@ -87,12 +87,13 @@ void ofApp::draw(){
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofRotateX(60);
     ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
+    
     ofBeginShape();
 
     for (int y=0 ; y<rows ; y++){
         for (int x=0 ; x<cols ; x++){
-            ofVertex(x*scl, y*scl, ofRandom(scaledVol*300)*ofNoise(counter) );
-            ofVertex(x*scl, (y+1)*scl, ofRandom(scaledVol*500) * ofNoise(counter) );
+            ofVertex(x*scl, y*scl, ofRandom(scaledVol*200)*ofNoise(counter,x*0.1) );
+            ofVertex(x*scl, (y+1)*scl, ofRandom(scaledVol*200) * ofNoise(counter,y*0.1) );
         }
     }
     ofEndShape();
